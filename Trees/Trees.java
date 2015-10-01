@@ -4,17 +4,18 @@
  * Sept. 26, 2015
  * Print trees using parameters
  * 3 segments, 4 lines
+ * HEIGHT<2
  */
 public class Trees{
+    public static final int SEGMENT=3;
+    public static final int HEIGHT=4;
     public static void main(String[] args){
-        int segment = 3;
-        int height =4;
-        tree(segment, height);
+        tree(SEGMENT, HEIGHT);
     }
     public static void tree(int segment, int height){
         for(int part=1; part<=segment; part++){
             for(int lines=1; lines<=height; lines++){
-                for(int spaces=1; spaces<=(6-(lines*1))-(part-1); spaces++){
+                for(int spaces=1; spaces<=((((segment*height)/2)-(((height/2)-(((height-1)/2))*1)+((lines*1)-1)))+(((height/2)-((height-1)/2))*((segment+segment)/(segment*segment))))-(part-1); spaces++){
                     System.out.print(" ");
                 }
                 for(int stars=1; stars<=((part-1)*2)+(-1+(lines*2)); stars++){
@@ -28,9 +29,15 @@ public class Trees{
         base();
     }
     public static void singleStar(){
-        System.out.println("     *");
+        for(int spaces=1; spaces<=((SEGMENT*HEIGHT)/2)-((((SEGMENT+1)/2)-(SEGMENT/2))*((HEIGHT/2)-((HEIGHT-1)/2))); spaces++){
+            System.out.print(" ");
+        }
+        System.out.println("*");
     }
     public static void base(){
-        System.out.println("  *******");
+        for(int spaces=1; spaces<=((SEGMENT*HEIGHT)/2)-(((((SEGMENT+1)/2)-(SEGMENT/2))*((HEIGHT/2)-((HEIGHT-1)/2)))+3); spaces++){
+            System.out.print(" ");
+        }
+        System.out.println("*******");
     }
 }
